@@ -1,0 +1,33 @@
+.reset__btn {
+    padding: 3% 5%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #aa0404;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 9px #999;
+}
+
+.reset__btn:hover {
+    background-color: #8e3e3e;
+}
+
+.reset__btn:active {
+    background-color: #8e3e3e;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #04AA6D;
+    padding: 20px;
+    border-radius: 7px;
+}
