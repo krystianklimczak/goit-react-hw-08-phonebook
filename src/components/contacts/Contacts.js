@@ -5,24 +5,25 @@ import React, { Component } from 'react'
 import { nanoid } from 'nanoid'
 
 // css modules
-// import css from './App.module.css';
+import css from './Contacts.module.css';
 
 // proptypes
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class Contacts extends Component {
   render() {
-    const { contacts, children } = this.props;
+    const { contacts, children, handlerRemove } = this.props;
 
     return (
-        <div>
+        <div className={css.contacts}>
             {children}
-            <ul>
+            <ul className={css.list}>
                 {contacts.map(contact => {
                     return (
-                        <li key={nanoid()}>
-                            <p>{contact.name}</p>
-                            <p>{contact.number}</p>
+                        <li key={nanoid()} className={css.item}>
+                            <p className={css.text}>{contact.name}</p>
+                            <p className={css.text}>{contact.number}</p>
+                            <button className={css.btn} type='button' onClick={handlerRemove} value={contact.id}>Delete</button>
                         </li>
                     )
                 })}
@@ -30,4 +31,14 @@ export default class Contacts extends Component {
         </div>
     )
   }
+}
+
+// proptypes of contacts component
+Contacts.propTypes = {
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+    })),
+    handlerRemove: PropTypes.func.isRequired
 }

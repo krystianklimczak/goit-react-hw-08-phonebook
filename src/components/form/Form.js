@@ -2,18 +2,18 @@
 import React, { Component } from 'react'
 
 // css modules
-// import css from './App.module.css';
+import css from './Form.module.css';
 
 // proptypes
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class Form extends Component {
   render() {
-    const { name, number, onChange, onSubmit } = this.props;
+    const { name, number, onSubmit } = this.props;
 
     return (
-      <form onSubmit={onSubmit}>
-        <label>
+      <form onSubmit={onSubmit} className={css.form}>
+        <label className={css.label}>
             Name
             <input
                 type="text"
@@ -22,10 +22,10 @@ export default class Form extends Component {
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
                 value={name}
-                onChange={onChange}
+                className={css.input}
             />
         </label>
-        <label>
+        <label className={css.label}>
             Number
             <input
                 type="tel"
@@ -34,13 +34,20 @@ export default class Form extends Component {
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
                 value={number}
-                onChange={onChange}
+                className={css.input}
             />
         </label>
-        <button type='submit'>
+        <button type='submit' className={css.btn}>
             Add contact
         </button>
       </form>
     )
   }
+}
+
+// proptypes of form component
+Form.propTypes = {
+  name: PropTypes.string,
+  number: PropTypes.string, 
+  onSubmit: PropTypes.func.isRequired
 }
