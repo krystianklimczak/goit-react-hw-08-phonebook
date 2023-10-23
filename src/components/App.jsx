@@ -76,7 +76,7 @@ export default class App extends Component {
   // render
   render() {
     // destructuring assignment
-    const {name, number, filter, contacts} = this.state;
+    const {filter, contacts} = this.state;
 
     // declatarion of filtered contacts of user input
     const filteredContacts = contacts.filter(contact => contact.name.toUpperCase().includes(filter.toUpperCase()));
@@ -86,7 +86,7 @@ export default class App extends Component {
         <h1 className={css.phoneBook}>Phonebook</h1>
         <div className={css.phoneBook__options}>
           <Section title="Add Contact">
-            <Form name={name} number={number} onSubmit={this.handlerSubmit}/>
+            <Form onSubmit={this.handlerSubmit}/>
           </Section>
           
           <Section title="Contacts">
