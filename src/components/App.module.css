@@ -5,12 +5,11 @@
     -webkit-box-shadow: 5px 5px 19px -5px rgba(0,0,0,0.5);
     -moz-box-shadow: 5px 5px 19px -5px rgba(0,0,0,0.5);
     text-align: center;
-    max-width: 400px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    min-width: 400px;
+    width: 100%;
 }
 
 .phoneBook {
@@ -21,4 +20,11 @@
     border-radius: 7px;
     text-align: center;
     margin: 0 auto;
+}
+
+.phoneBook__options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
 }

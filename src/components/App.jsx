@@ -84,16 +84,17 @@ export default class App extends Component {
     return (
       <div className={css.container}>
         <h1 className={css.phoneBook}>Phonebook</h1>
-
-        <Section title="Add Contact">
-          <Form name={name} number={number} onSubmit={this.handlerSubmit}/>
-        </Section>
-        
-        <Section title="Contacts">
-          <Contacts contacts={filteredContacts} handlerRemove={this.handlerDelete}>
-            {contacts.length > 0 && <Filter filter={filter} onChange={this.handlerChange}/>}
-          </Contacts>
-        </Section>
+        <div className={css.phoneBook__options}>
+          <Section title="Add Contact">
+            <Form name={name} number={number} onSubmit={this.handlerSubmit}/>
+          </Section>
+          
+          <Section title="Contacts">
+            <Contacts contacts={filteredContacts} handlerRemove={this.handlerDelete}>
+              {contacts.length > 0 && <Filter filter={filter} onChange={this.handlerChange}/>}
+            </Contacts>
+          </Section>
+        </div>
       </div>
     )
   }

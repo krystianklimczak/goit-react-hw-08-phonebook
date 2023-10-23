@@ -3,6 +3,8 @@
     flex-direction: column;
     gap: 20px;
     text-align: start;
+    max-width: 400px;
+    width: 100%;
 }
 
 .section__title {
