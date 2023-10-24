@@ -31,44 +31,37 @@ export default class App extends Component {
     filter: ''
   };
 
-  // change value of input handler
   handlerChange = ev => {
     const {name, value} = ev.target;
     this.setState({ [name]: value});
   }
 
-  // submit form handler
   handlerSubmit = ev => {
     ev.preventDefault();
 
     const form = ev.currentTarget;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-
-    // check if there is contact with that name / if yes, return 
+ 
     const allContacts = this.state.contacts;
     if (allContacts.find(contact => contact.name.toUpperCase() === name.toUpperCase())) {
       return Notiflix.Notify.failure(`Contact ${name} already exist on list`)
     }
 
-    // generate new contact
     const newContact = {
       name: name,
       number: number,
       id: nanoid(),
     }
 
-    // update contacts list state
     this.setState({
       contacts: [...this.state.contacts, newContact],
       filter: ''
     })
 
-    // reset form inputs
     form.reset();
   }
 
-  // delete contact handler
   handlerDelete = (ev) => {
     const deletedContactId = ev.target.value;
     const updatedContacts = this.state.contacts.filter(contact => !(contact.id === deletedContactId));
@@ -78,19 +71,15 @@ export default class App extends Component {
     })
   }
 
-  // reset btn handler
   handlerReset = () => {
     this.setState({
       ...initialContacts
     })
   }
 
-  // render
   render() {
-    // destructuring assignment
     const {filter, contacts} = this.state;
 
-    // declatarion of filtered contacts of user input
     const filteredContacts = contacts.filter(contact => contact.name.toUpperCase().includes(filter.toUpperCase()));
 
     return (

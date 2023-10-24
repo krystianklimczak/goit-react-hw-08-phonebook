@@ -33,7 +33,6 @@ export default class Contacts extends Component {
   }
 }
 
-// proptypes of contacts component
 Contacts.propTypes = {
     contacts: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
