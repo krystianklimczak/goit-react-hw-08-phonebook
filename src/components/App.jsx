@@ -87,7 +87,9 @@ export default class App extends Component {
 
     const contacts = JSON.parse(json)
 
-    this.setState(() => ({contacts}));
+    if (JSON.parse(json) !== null) {
+      this.setState(() => ({contacts}));
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -97,8 +99,9 @@ export default class App extends Component {
 
   render() {
     const {filter, contacts} = this.state;
-
+    
     const filteredContacts = contacts.filter(contact => contact.name.toUpperCase().includes(filter.toUpperCase()));
+
 
     return (
       <div className={css.container}>
