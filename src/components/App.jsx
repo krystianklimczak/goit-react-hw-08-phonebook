@@ -79,15 +79,17 @@ export default class App extends Component {
 
   componentDidMount() {
     const json = localStorage.getItem('contacts');
+    console.log(JSON.parse(json) === null);
+    console.log(JSON.parse(json));
     
-    if (!json) {
+    if (JSON.parse(json) === null) {
       const json = JSON.stringify(this.state.contacts);
       localStorage.setItem('contacts', json);
     }
 
-    const contactsLocalStorage = JSON.parse(json)
+    const contacts = JSON.parse(json)
 
-    this.setState(() => ({contactsLocalStorage}));
+    this.setState(() => ({contacts}));
   }
 
   componentDidUpdate(prevProps, prevState) {
