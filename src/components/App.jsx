@@ -79,8 +79,6 @@ export default class App extends Component {
 
   componentDidMount() {
     const json = localStorage.getItem('contacts');
-    console.log(JSON.parse(json) === null);
-    console.log(JSON.parse(json));
     
     if (JSON.parse(json) === null) {
       const json = JSON.stringify(this.state.contacts);
