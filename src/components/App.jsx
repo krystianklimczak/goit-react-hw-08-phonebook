@@ -85,9 +85,9 @@ export default class App extends Component {
       localStorage.setItem('contacts', json);
     }
 
-    const contacts = JSON.parse(json)
-    
-    this.setState(() => ({contacts}));
+    const contactsLocalStorage = JSON.parse(json)
+
+    this.setState(() => ({contactsLocalStorage}));
   }
 
   componentDidUpdate(prevProps, prevState) {
