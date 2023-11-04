@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://krystianklimczak.github.io/goit-react-hw-03-phonebook/",
+  "homepage": "https://krystianklimczak.github.io/goit-react-hw-04-phonebook/",
   "dependencies": {
     "nanoid": "^5.0.2",
     "notiflix": "^3.2.6",
