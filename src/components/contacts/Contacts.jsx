@@ -1,43 +1,33 @@
-// 'React.Component'
-import React, { Component } from 'react'
+import { nanoid } from 'nanoid';
 
-// library to generete unique id
-import { nanoid } from 'nanoid'
+import { useContacts } from 'hooks/ContactContext';
 
-// css modules
 import css from './Contacts.module.css';
 
-// proptypes
-import PropTypes from 'prop-types';
+export default function Contacts({ children }) {
+  const { filteredContacts, handleDelete } = useContacts();
 
-export default class Contacts extends Component {
-  render() {
-    const { contacts, children, handlerRemove } = this.props;
-
-    return (
-        <div className={css.contacts}>
-            {children}
-            <ul className={css.list}>
-                {contacts.map(contact => {
-                    return (
-                        <li key={nanoid()} className={css.item}>
-                            <p className={css.text}>{contact.name}</p>
-                            <p className={css.text}>{contact.number}</p>
-                            <button className={css.btn} type='button' onClick={handlerRemove} value={contact.id}>Delete</button>
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
-    )
-  }
-}
-
-Contacts.propTypes = {
-    contacts: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-    })),
-    handlerRemove: PropTypes.func.isRequired
+  return (
+    <div className={css.contacts}>
+      {children}
+      <ul className={css.list}>
+        {filteredContacts.map(contact => {
+          return (
+            <li key={nanoid()} className={css.item}>
+              <p className={css.text}>{contact.name}</p>
+              <p className={css.text}>{contact.number}</p>
+              <button
+                className={css.btn}
+                type="button"
+                onClick={handleDelete}
+                value={contact.id}
+              >
+                Delete
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
