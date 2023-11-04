@@ -1,33 +1,22 @@
-// 'React.Component'
-import React, { Component } from 'react'
+import { useContacts } from 'hooks/ContactContext';
 
-// css modules
 import css from './Filter.module.css';
 
-// proptypes
-import PropTypes from 'prop-types';
+export default function Filter() {
+  const { filter, handleFilter } = useContacts();
 
-export default class Filter extends Component {
-  render() {
-    const { filter, onChange } = this.props;
-    return (
-      <div className={css.filter}>
-        <label className={css.label}>
-            Find contacts by name
-            <input
-                type='text'
-                name='filter'
-                value={filter}
-                onChange={onChange}
-                className={css.input}
-            />
-        </label>
-      </div>
-    )
-  }
-}
-
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  return (
+    <div className={css.filter}>
+      <label className={css.label}>
+        Find contacts by name
+        <input
+          type="text"
+          name="filter"
+          value={filter}
+          onChange={handleFilter}
+          className={css.input}
+        />
+      </label>
+    </div>
+  );
 }
