@@ -1,15 +1,16 @@
 import React from 'react';
+import { store } from 'redux/store';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 
 import App from 'components/App';
-import { ContactsProvider } from 'hooks/ContactContext';
 
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ContactsProvider>
+    <Provider store={store}>
       <App />
-    </ContactsProvider>
+    </Provider>
   </React.StrictMode>
 );
