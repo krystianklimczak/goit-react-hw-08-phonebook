@@ -1,33 +1,37 @@
-import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
 
-import { useContacts } from 'hooks/ContactContext';
+import Contact from 'components/contact/Contact';
+import { getContacts, getFilter } from 'redux/selectors';
 
 import css from './Contacts.module.css';
+import PropTypes from 'prop-types';
 
 export default function Contacts({ children }) {
-  const { filteredContacts, handleDelete } = useContacts();
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
+  const filteredContactsList = contacts.filter(contact =>
+    contact.name.toUpperCase().includes(filter.toUpperCase())
+  );
 
   return (
     <div className={css.contacts}>
       {children}
       <ul className={css.list}>
-        {filteredContacts.map(contact => {
+        {filteredContactsList.map(contact => {
           return (
-            <li key={nanoid()} className={css.item}>
-              <p className={css.text}>{contact.name}</p>
-              <p className={css.text}>{contact.number}</p>
-              <button
-                className={css.btn}
-                type="button"
-                onClick={handleDelete}
-                value={contact.id}
-              >
-                Delete
-              </button>
-            </li>
+            <Contact
+              key={contact.id}
+              id={contact.id}
+              name={contact.name}
+              number={contact.number}
+            />
           );
         })}
       </ul>
     </div>
   );
 }
+
+Contacts.propTypes = {
+  children: PropTypes.element,
+};

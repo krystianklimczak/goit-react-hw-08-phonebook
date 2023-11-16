@@ -1,9 +1,14 @@
-import { useContacts } from 'hooks/ContactContext';
+import { useDispatch } from 'react-redux';
+import { resetContacts } from 'redux/contactSlice';
 
 import css from './Reset.module.css';
 
 export default function Reset() {
-  const { handleReset } = useContacts();
+  const dispatch = useDispatch();
+
+  const handleReset = () => {
+    dispatch(resetContacts());
+  };
 
   return (
     <div className={css.reset}>

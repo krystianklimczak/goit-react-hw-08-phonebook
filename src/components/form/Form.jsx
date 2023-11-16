@@ -1,12 +1,29 @@
-import { useContacts } from 'hooks/ContactContext';
+import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/contactSlice';
 
 import css from './Form.module.css';
 
 export default function Form() {
-  const { handleSubmit } = useContacts();
+  const dispatch = useDispatch();
+
+  const handleSumbite = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+    dispatch(
+      addContact({
+        id: nanoid(),
+        name: name,
+        number: number,
+      })
+    );
+    form.reset();
+  };
 
   return (
-    <form onSubmit={handleSubmit} className={css.form}>
+    <form onSubmit={handleSumbite} className={css.form}>
       <label className={css.label}>
         Name
         <input

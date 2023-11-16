@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { removeContact } from 'redux/reducer';
+import { removeContact } from 'redux/contactSlice';
 
 import PropTypes from 'prop-types';
 
