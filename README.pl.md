@@ -11,7 +11,7 @@ Utworzone z React.js, HTML, CSS, JS, i odrobiną pasji...
 ## Demo
 
 Sprawdź jak działa: (
-https://krystianklimczak.github.io/goit-react-hw-02-phonebook/ )
+https://krystianklimczak.github.io/goit-react-hw-07-phonebook/ )
 
 ---
 

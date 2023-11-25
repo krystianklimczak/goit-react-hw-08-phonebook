@@ -2,16 +2,15 @@
 
 # PhonebookApp
 
-Simple phonebook app created to allow you to add contact to your contact list.
-Add contact name and number. App will add contact to your list. Created with
-React.js, HTML, CSS, JS, and a bit of passion...
+Simple phonebook app created to allow you to add contact to your contact list. Add contact name and
+number. App will add contact to your list. Created with React.js, HTML, CSS, JS, and a bit of
+passion...
 
 ---
 
 ## Demo
 
-Here is working live demo: (
-https://krystianklimczak.github.io/goit-react-hw-02-phonebook/ )
+Here is working live demo: ( https://krystianklimczak.github.io/goit-react-hw-07-phonebook/ )
 
 ---
 
@@ -42,18 +41,17 @@ https://krystianklimczak.github.io/goit-react-hw-02-phonebook/ )
 
 ## Setup
 
-Clone this repo to your desktop and run `npm install` to install all the
-dependencies.
+Clone this repo to your desktop and run `npm install` to install all the dependencies.
 
 ---
 
 ## Usage
 
-After you clone this repo to your desktop, go to its root directory and run
-`npm install` to install its dependencies.
+After you clone this repo to your desktop, go to its root directory and run `npm install` to install
+its dependencies.
 
-Once the dependencies are installed, you can run `npm start` to start the
-application. You will then be able to acces it at localhost:3000
+Once the dependencies are installed, you can run `npm start` to start the application. You will then
+be able to acces it at localhost:3000
 
 ---
 
