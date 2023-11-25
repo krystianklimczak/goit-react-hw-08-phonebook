@@ -21,11 +21,30 @@
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #3e8e41;
+  background-color: #ff0000c0;
   border: none;
   border-radius: 7px;
 }
 
 .btn:hover {
+  background-color: #ff0000;
+}
+
+.blockInfo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blocked {
+  text-decoration: line-through;
+}
+
+.btnBlocked {
   background-color: #3e8e41;
+}
+
+.btnBlocked:hover {
+  background-color: #00b306;
 }

@@ -1,27 +1,35 @@
 import { useDispatch } from 'react-redux';
-import { removeContact } from 'redux/contactSlice';
+
+import { deleteContact, toggleBlocked } from 'redux/operations';
 
 import PropTypes from 'prop-types';
 
 import css from './Contact.module.css';
 
-function Contact({ name, number, id }) {
+function Contact({ contact }) {
   const dispatch = useDispatch();
 
-  const handleDelete = ev => {
-    const id = ev.target.value;
-    dispatch(removeContact(id));
-  };
+  const handleDelete = () => dispatch(deleteContact(contact.id));
+
+  const handleToggle = () => dispatch(toggleBlocked(contact));
 
   return (
     <li className={css.item}>
-      <p className={css.text}>{name}</p>
-      <p className={css.text}>{number}</p>
+      <p className={`${css.text} ${contact.blocked ? css.blocked : 'nonblocked'}`}>
+        {contact.name}
+      </p>
+      <p className={`${css.text} ${contact.blocked ? css.blocked : 'nonblocked'}`}>
+        {contact.number}
+      </p>
+      <div className={css.blockInfo}>
+        <input type="checkbox" checked={contact.blocked} onChange={handleToggle} />
+        <p>{contact.blocked ? 'UNBLOCK' : 'BLOCK'}</p>
+      </div>
       <button
-        className={css.btn}
+        className={`${css.btn} ${contact.blocked ? css.btnBlocked : 'btnNonBlocked'}`}
         type="button"
         onClick={handleDelete}
-        value={id}
+        value={contact.id}
       >
         Delete
       </button>
@@ -32,7 +40,10 @@ function Contact({ name, number, id }) {
 export default Contact;
 
 Contact.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  contact: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    blocked: PropTypes.bool.isRequired,
+  }),
 };

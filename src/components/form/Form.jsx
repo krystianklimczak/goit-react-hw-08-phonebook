@@ -1,29 +1,40 @@
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactSlice';
+import Notiflix from 'notiflix';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 
 import css from './Form.module.css';
 
 export default function Form() {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
-  const handleSumbite = event => {
+  const handleSumbit = event => {
     event.preventDefault();
     const form = event.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    dispatch(
-      addContact({
-        id: nanoid(),
-        name: name,
-        number: number,
-      })
-    );
+
+    const newContact = {
+      name,
+      number,
+      blocked: false,
+      id: nanoid(),
+    };
+
+    if (contacts.find(contact => contact.name.toUpperCase() === newContact.name.toUpperCase())) {
+      return Notiflix.Notify.failure(`Contact ${newContact.name} already exist on list`);
+    } else {
+      dispatch(addContact(newContact));
+    }
+
     form.reset();
   };
 
   return (
-    <form onSubmit={handleSumbite} className={css.form}>
+    <form onSubmit={handleSumbit} className={css.form}>
       <label className={css.label}>
         Name
         <input
