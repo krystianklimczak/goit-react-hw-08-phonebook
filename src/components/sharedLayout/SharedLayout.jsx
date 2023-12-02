@@ -33,14 +33,13 @@ const UnauthenticatedNav = () => (
 
 export default function SharedLayout() {
   const { isLoggedIn } = useAuth();
-  const { user } = useAuth();
   return (
     <Container>
       <AppBar position="relative">
         <Header>
           <Logo />
           <nav className={css.navigation}>
-            {user && <UserMenu />}
+            {isLoggedIn && <UserMenu />}
             <NavLink to="/goit-react-hw-08-phonebook">
               <Button variant="contained">Home</Button>
             </NavLink>

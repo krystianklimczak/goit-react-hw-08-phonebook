@@ -37,14 +37,14 @@ export const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.isLoggedIn = true;
-        state.user = action.payload.user;
+        state.user = action.payload.user.name;
         state.token = action.payload.token;
         state.isRefreshing = false;
         state.isLoading = false;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoggedIn = true;
-        state.user = action.payload.user;
+        state.user = action.payload.user.name;
         state.token = action.payload.token;
         state.isRefreshing = false;
         state.isLoading = false;

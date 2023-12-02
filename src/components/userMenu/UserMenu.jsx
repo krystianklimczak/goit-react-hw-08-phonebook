@@ -4,9 +4,12 @@ import { selectUser } from 'redux/reducers/auth/selectors';
 
 export default function UserMenu() {
   const user = useSelector(selectUser);
+
   return (
     <div>
-      Welcome <b>{user}</b> 💪
+      <p>
+        Welcome <b>{user}</b> 💪
+      </p>
     </div>
   );
 }

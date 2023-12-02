@@ -12,7 +12,6 @@ const handleRejected = (state, action) => {
 };
 
 const isPendingAction = action => {
-  console.log(action);
   return action.type.endsWith(`/pending`) && action.type.startsWith('contacts');
 };
 
