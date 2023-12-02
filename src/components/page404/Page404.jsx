@@ -6,9 +6,7 @@ export default function Page404() {
     <div>
       Page404
       <button>
-        <Link to="https://krystianklimczak.github.io/goit-react-hw-08-phonebook">
-          Go back to main page
-        </Link>
+        <Link to="/goit-react-hw-08-phonebook">Go back to main page</Link>
       </button>
     </div>
   );

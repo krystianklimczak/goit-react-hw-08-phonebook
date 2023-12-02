@@ -30,14 +30,8 @@ export default function App() {
   return (
     <div>
       <Routes>
-        <Route
-          path="https://krystianklimczak.github.io/goit-react-hw-08-phonebook"
-          element={<SharedLayout />}
-        >
-          <Route
-            path="https://krystianklimczak.github.io/goit-react-hw-08-phonebook"
-            element={<Home />}
-          >
+        <Route path="/goit-react-hw-08-phonebook" element={<SharedLayout />}>
+          <Route path="/goit-react-hw-08-phonebook" element={<Home />}>
             <Route
               path="login"
               element={<ProtectedRoute element={<Login />} redirect="/contacts" />}
