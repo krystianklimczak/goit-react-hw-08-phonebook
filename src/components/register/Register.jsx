@@ -3,7 +3,7 @@ import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { DoorClosed, DoorOpen } from 'react-bootstrap-icons';
+import { DoorClosed, DoorOpen, XCircle } from 'react-bootstrap-icons';
 
 import Modal from 'components/modal/Modal';
 import { register } from 'redux/reducers/auth/operations';
@@ -58,6 +58,11 @@ export default function Register() {
               <NavLink to="/goit-react-hw-08-phonebook/login">
                 <Button variant="contained" endIcon={<DoorOpen />} size="large">
                   Login
+                </Button>
+              </NavLink>
+              <NavLink to="/goit-react-hw-08-phonebook">
+                <Button variant="contained" size="large" endIcon={<XCircle />}>
+                  Close
                 </Button>
               </NavLink>
             </div>
