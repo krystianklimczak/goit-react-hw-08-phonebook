@@ -8,6 +8,7 @@ import css from './SharedLayout.module.css';
 import Header from 'components/header/Header';
 import Container from 'components/container/Container';
 import LogoutButton from 'components/logoutButton/LogoutButton';
+import UserMenu from 'components/userMenu/UserMenu';
 
 const AuthenticatedNav = () => (
   <>
@@ -32,13 +33,14 @@ const UnauthenticatedNav = () => (
 
 export default function SharedLayout() {
   const { isLoggedIn } = useAuth();
-
+  const { user } = useAuth();
   return (
     <Container>
       <AppBar position="relative">
         <Header>
           <Logo />
           <nav className={css.navigation}>
+            {user && <UserMenu />}
             <NavLink to="/goit-react-hw-08-phonebook">
               <Button variant="contained">Home</Button>
             </NavLink>
