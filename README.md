@@ -2,9 +2,9 @@
 
 # PhonebookApp
 
-Simple phonebook app created to allow you to add contact to your contact list. Add contact name and
-number. App will add contact to your list. Created with React.js, HTML, CSS, JS, and a bit of
-passion...
+Simple phonebook app created to allow manage your contact list. Register or Login to get your own
+phonebook. Add contact name and number. App will add contact to your list. You can easy delete
+unwanted contact from your phoenbook. Created with React.js, HTML, CSS, JS, and a bit of passion...
 
 ---
 
@@ -20,9 +20,13 @@ Here is working live demo: ( https://krystianklimczak.github.io/goit-react-hw-08
 
 ![](./assets/phonebook-main.png)
 
+### Create your own phonebook account or login if you already have registered
+
+![](./assets/phonebook-register.png)
+
 ### Simply just click to add your new contact
 
-![](./assets/phonebook-click.png)
+![](./assets/phonebook-add.png)
 
 ### You can always delete contact from your list
 
