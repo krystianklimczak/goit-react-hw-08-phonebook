@@ -10,7 +10,7 @@ passion...
 
 ## Demo
 
-Here is working live demo: ( https://krystianklimczak.github.io/goit-react-hw-07-phonebook/ )
+Here is working live demo: ( https://krystianklimczak.github.io/goit-react-hw-08-phonebook/ )
 
 ---
 
