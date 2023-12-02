@@ -7,7 +7,7 @@ export default function Loader() {
   return (
     <div className={css.loader}>
       <RotatingLines
-        strokeColor="#005eda"
+        strokeColor="white"
         strokeWidth="5"
         animationDuration="0.75"
         width="96"

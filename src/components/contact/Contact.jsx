@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { Trash3 } from 'react-bootstrap-icons';
 
 import { deleteContact } from 'redux/reducers/contacts/operations';
 
@@ -15,7 +16,13 @@ function Contact({ contact }) {
     <li className={css.item}>
       <p className={css.text}>{contact.name}</p>
       <p className={css.text}>{contact.number}</p>
-      <Button variant="contained" type="button" onClick={handleDelete} value={contact.id}>
+      <Button
+        variant="contained"
+        type="button"
+        onClick={handleDelete}
+        value={contact.id}
+        endIcon={<Trash3 />}
+      >
         Delete
       </Button>
     </li>

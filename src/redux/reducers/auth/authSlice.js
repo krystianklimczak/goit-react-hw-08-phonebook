@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { createSlice } from '@reduxjs/toolkit';
 
 import { checkUser, login, logout, register } from './operations';
@@ -41,6 +42,7 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isRefreshing = false;
         state.isLoading = false;
+        Notiflix.Notify.success(`Nice to meet you ${action.payload.user.name}! 🫵`);
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoggedIn = true;
@@ -48,8 +50,12 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isRefreshing = false;
         state.isLoading = false;
+        Notiflix.Notify.success(`Welcome back ${action.payload.user.name} ✌️`);
       })
-      .addCase(logout.fulfilled, (state, action) => initialState)
+      .addCase(logout.fulfilled, (state, action) => {
+        Notiflix.Notify.info('Successfully Logged Out 👋');
+        return initialState;
+      })
       .addCase(checkUser.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.isRefreshing = false;

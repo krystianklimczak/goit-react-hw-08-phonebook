@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import { Button } from '@mui/material';
+import { PlusCircle } from 'react-bootstrap-icons';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addContact } from 'redux/reducers/contacts/operations';
@@ -55,7 +56,7 @@ export default function Form() {
           className={css.input}
         />
       </label>
-      <Button variant="contained" type="submit">
+      <Button variant="contained" type="submit" endIcon={<PlusCircle />}>
         Add Contact
       </Button>
     </form>

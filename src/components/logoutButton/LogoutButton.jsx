@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
+import { DoorClosedFill } from 'react-bootstrap-icons';
 
 import { logout } from 'redux/reducers/auth/operations';
 
@@ -12,7 +13,7 @@ export default function LogoutButton() {
   };
 
   return (
-    <Button variant="contained" onClick={handleClick}>
+    <Button variant="contained" size="large" onClick={handleClick} endIcon={<DoorClosedFill />}>
       Logout
     </Button>
   );

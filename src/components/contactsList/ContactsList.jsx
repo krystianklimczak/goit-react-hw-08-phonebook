@@ -9,6 +9,7 @@ import {
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import Loader from 'components/loader/Loader';
 import { fetchContacts } from 'redux/reducers/contacts/operations';
 
 import css from './ContactsList.module.css';
@@ -26,7 +27,7 @@ export default function ContactsList({ children }) {
   return (
     <div>
       {children}
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <Loader />}
       <ul className={css.list}>
         {filteredContactsList.map(contact => {
           return <Contact key={contact.id} contact={contact} />;

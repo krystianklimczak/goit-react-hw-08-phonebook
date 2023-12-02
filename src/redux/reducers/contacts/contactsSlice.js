@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { createSlice } from '@reduxjs/toolkit';
 
 import { addContact, deleteContact, fetchContacts } from './operations';
@@ -38,6 +39,7 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
+        Notiflix.Notify.success(`Contact ${action.payload.name} added successfully! 📞`);
       })
 
       .addCase(deleteContact.fulfilled, (state, action) => {
@@ -45,6 +47,7 @@ const contactsSlice = createSlice({
         state.error = null;
         const index = state.items.findIndex(contact => contact.id === action.payload.id);
         state.items.splice(index, 1);
+        Notiflix.Notify.failure(`Contact ${action.payload.name} removed! ❎`);
       })
 
       .addMatcher(isPendingAction, handlePending)
