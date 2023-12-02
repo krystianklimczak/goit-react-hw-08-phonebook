@@ -1,9 +1,10 @@
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
+import { Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addContact } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/reducers/contacts/operations';
+import { selectContacts } from 'redux/reducers/contacts/selectors';
 
 import css from './Form.module.css';
 
@@ -20,7 +21,6 @@ export default function Form() {
     const newContact = {
       name,
       number,
-      blocked: false,
       id: nanoid(),
     };
 
@@ -55,9 +55,9 @@ export default function Form() {
           className={css.input}
         />
       </label>
-      <button type="submit" className={css.btn}>
-        Add contact
-      </button>
+      <Button variant="contained" type="submit">
+        Add Contact
+      </Button>
     </form>
   );
 }

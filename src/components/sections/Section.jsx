@@ -1,13 +1,20 @@
+import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
-
-import css from './Section.module.css';
 
 export default function Section({ title, children }) {
   return (
-    <div className={css.section}>
-      <h2 className={css.section__title}>{title}</h2>
+    <Box
+      component="section"
+      sx={{ p: 2 }}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      my={4}
+      color="white"
+    >
+      <h2>{title}</h2>
       <div>{children}</div>
-    </div>
+    </Box>
   );
 }
 

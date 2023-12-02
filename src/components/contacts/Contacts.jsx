@@ -1,30 +1,29 @@
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import Contact from 'components/contact/Contact';
-import { selectError, selectIsLoading, selectVisibleContacts } from 'redux/selectors';
+import Form from 'components/form/Form';
+import Filter from 'components/filter/Filter';
+import Section from 'components/sections/Section';
+import ContactsList from 'components/contactsList/ContactsList';
 
-import PropTypes from 'prop-types';
-
-import css from './Contacts.module.css';
-
-export default function Contacts({ children }) {
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const filteredContactsList = useSelector(selectVisibleContacts);
-
+export default function Contacts() {
   return (
-    <div className={css.contacts}>
-      {children}
-      {isLoading && !error && <b>Request in progress...</b>}
-      <ul className={css.list}>
-        {filteredContactsList.map(contact => {
-          return <Contact key={contact.id} contact={contact} />;
-        })}
-      </ul>
-    </div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Contacts</title>
+        </Helmet>
+
+        <Section title="Add Contact">
+          <Form />
+        </Section>
+
+        <Section title="Contacts">
+          <ContactsList>
+            <Filter />
+          </ContactsList>
+        </Section>
+      </div>
+    </HelmetProvider>
   );
 }
-
-Contacts.propTypes = {
-  children: PropTypes.element,
-};
