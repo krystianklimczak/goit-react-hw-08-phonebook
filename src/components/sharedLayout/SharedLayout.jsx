@@ -39,7 +39,7 @@ export default function SharedLayout() {
         <Header>
           <Logo />
           <nav className={css.navigation}>
-            <NavLink to="/">
+            <NavLink to="/goit-react-hw-08-phonebook">
               <Button variant="contained">Home</Button>
             </NavLink>
             {isLoggedIn ? <AuthenticatedNav /> : <UnauthenticatedNav />}
