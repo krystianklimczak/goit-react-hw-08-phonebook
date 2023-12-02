@@ -4,7 +4,7 @@
 
 Simple phonebook app created to allow manage your contact list. Register or Login to get your own
 phonebook. Add contact name and number. App will add contact to your list. You can easy delete
-unwanted contact from your phoenbook. Created with React.js, HTML, CSS, JS, and a bit of passion...
+unwanted contact from your phoenbook. Created with React.js, HTML, CSS, JS, and a bit of passion....
 
 ---
 

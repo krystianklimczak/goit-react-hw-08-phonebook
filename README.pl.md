@@ -4,7 +4,7 @@
 
 Prosta aplikacja stworzona by zarządzać listą kontaktów. Zarejestruj się lub zaloguj aby otrzymać
 dostęp do swojej książki. Wprowadź nazwę użytkownika oraz jego numer. App doda wprowadzony kontakt
-do twojej listy. Utworzone z React.js, HTML, CSS, JS, i odrobiną pasji...
+do twojej listy. Utworzone z React.js, HTML, CSS, JS, i odrobiną pasji....
 
 ---
 
