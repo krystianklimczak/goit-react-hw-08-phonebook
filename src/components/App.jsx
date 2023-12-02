@@ -34,16 +34,26 @@ export default function App() {
           <Route path="/goit-react-hw-08-phonebook" element={<Home />}>
             <Route
               path="login"
-              element={<ProtectedRoute element={<Login />} redirect="/contacts" />}
+              element={
+                <ProtectedRoute
+                  element={<Login />}
+                  redirect="/goit-react-hw-08-phonebook/contacts"
+                />
+              }
             />
             <Route
               path="register"
-              element={<ProtectedRoute element={<Register />} redirect="/contacts" />}
+              element={
+                <ProtectedRoute
+                  element={<Register />}
+                  redirect="/goit-react-hw-08-phonebook/contacts"
+                />
+              }
             />
           </Route>
           <Route
             path="contacts"
-            element={<PrivateRoute element={<Contacts />} redirect="/login" />}
+            element={<PrivateRoute element={<Contacts />} redirect="/goit-react-hw-08-phonebook" />}
           />
         </Route>
         <Route path="*" element={<Page404 />} />

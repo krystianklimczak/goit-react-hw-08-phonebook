@@ -48,7 +48,7 @@ export default function Login() {
               <Button variant="contained" type="submit">
                 Login
               </Button>
-              <NavLink to="/register">
+              <NavLink to="/goit-react-hw-08-phonebook/register">
                 <Button variant="contained">Register</Button>
               </NavLink>
             </div>
