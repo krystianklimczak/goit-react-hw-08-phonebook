@@ -1,35 +1,53 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Form from './form/Form';
-import Filter from './filter/Filter';
-import Section from './sections/Section';
+import Home from './home/Home';
+import Login from './login/Login';
+import Loader from './loader/Loader';
+import Page404 from './page404/Page404';
+import Register from './register/Register';
 import Contacts from './contacts/Contacts';
-import { fetchContacts } from 'redux/operations';
-
-import css from './App.module.css';
+import SharedLayout from './sharedLayout/SharedLayout';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import { checkUser } from 'redux/reducers/auth/operations';
+import ProtectedRoute from './protectedRoute/ProtectedRoute';
+import { selectIsRefreshing } from 'redux/reducers/auth/selectors';
 
 export default function App() {
   const dispatch = useDispatch();
 
+  const isRefreshing = useSelector(selectIsRefreshing);
+
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(checkUser());
   }, [dispatch]);
 
-  return (
-    <div className={css.container}>
-      <h1 className={css.phoneBook}>Phonebook</h1>
-      <div className={css.phoneBook__options}>
-        <Section title="Add Contact">
-          <Form />
-        </Section>
+  if (isRefreshing) {
+    return <Loader />;
+  }
 
-        <Section title="Contacts">
-          <Contacts>
-            <Filter />
-          </Contacts>
-        </Section>
-      </div>
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route path="/" element={<Home />}>
+            <Route
+              path="login"
+              element={<ProtectedRoute element={<Login />} redirect="/contacts" />}
+            />
+            <Route
+              path="register"
+              element={<ProtectedRoute element={<Register />} redirect="/contacts" />}
+            />
+          </Route>
+          <Route
+            path="contacts"
+            element={<PrivateRoute element={<Contacts />} redirect="/login" />}
+          />
+        </Route>
+        <Route path="*" element={<Page404 />} />
+      </Routes>
     </div>
   );
 }
