@@ -55,7 +55,7 @@ export default function Form() {
         <div className={css.labelInfo}>
           <InfoCircle />
           <p className={css.labelInfoDescription}>
-            Enter phone number with <b>area/dialling code</b> and flag with change automaticly
+            Enter phone number with <b>area/dialling code</b> and flag will change automaticly
           </p>
         </div>
         <PhoneInput
