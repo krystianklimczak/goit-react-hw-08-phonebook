@@ -37,7 +37,7 @@ export default function Info() {
           </h3>{' '}
           <br></br>
           We prioritize data security. TeleContacts has implemented the latest security standards,
-          safeguarding users' privacy and information from any threats.
+          safeguarding users privacy and information from any threats.
         </li>
         <li className={css.item}>
           <h3>

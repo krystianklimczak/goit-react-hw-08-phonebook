@@ -19,7 +19,7 @@
 
 .item {
   display: flex;
-  max-width: 15rem;
   flex-direction: column;
   text-align: start;
+  justify-content: space-between;
 }
