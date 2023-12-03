@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import { Button } from '@mui/material';
-import { PlusCircle } from 'react-bootstrap-icons';
+import { InfoCircle, PlusCircle } from 'react-bootstrap-icons';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addContact } from 'redux/reducers/contacts/operations';
@@ -52,6 +52,12 @@ export default function Form() {
       </label>
       <label className={css.labelNumber}>
         Number
+        <div className={css.labelInfo}>
+          <InfoCircle />
+          <p className={css.labelInfoDescription}>
+            Enter phone number with <b>area/dialling code</b> and flag with change automaticly
+          </p>
+        </div>
         <PhoneInput
           value={value}
           onChange={setValue}
