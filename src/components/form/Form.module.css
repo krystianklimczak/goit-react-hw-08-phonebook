@@ -21,6 +21,25 @@
   cursor: pointer;
 }
 
+.labelNumber {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 3% 10%;
+  color: white;
+  border-radius: 7px;
+  background-color: #005eda;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.labelNumber:focus-within {
+  background-color: #004aaa;
+}
+
 label:focus-within {
   background-color: #004aaa;
 }
@@ -32,6 +51,48 @@ label:focus-within {
   font-weight: 600;
   border-radius: 7px;
   border: none;
+  width: 200px;
+  height: 40px;
+}
+
+.inputNumber input {
+  outline: none;
+  color: #005eda;
+  padding: 2%;
+  font-weight: 600;
+  border-radius: 7px;
+  border: none;
+  width: 200px;
+  height: 40px;
+}
+
+.inputNumber select {
+  outline: none;
+  color: #005eda;
+  padding: 2%;
+  font-weight: 600;
+  border-radius: 7px;
+  border: none;
+  /* max-width: 5rem; */
+  width: 90px;
+  height: 40px;
+}
+
+.inputNumber img {
+  outline: none;
+  color: #005eda;
+  padding: 2%;
+  font-weight: 600;
+  border-radius: 7px;
+  border: none;
+  width: 50px;
+  height: 40px;
+}
+
+.inputNumber div {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
 }
 
 .btn {

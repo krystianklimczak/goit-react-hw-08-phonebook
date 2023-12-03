@@ -8,16 +8,19 @@ import { addContact } from 'redux/reducers/contacts/operations';
 import { selectContacts } from 'redux/reducers/contacts/selectors';
 
 import css from './Form.module.css';
+import PhoneInput from 'react-phone-number-input';
+import { useState } from 'react';
 
 export default function Form() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  const [value, setValue] = useState();
 
   const handleSumbit = event => {
     event.preventDefault();
     const form = event.target;
     const name = form.elements.name.value;
-    const number = form.elements.number.value;
+    const number = form.elements.tel.value;
 
     const newContact = {
       name,
@@ -32,6 +35,7 @@ export default function Form() {
     }
 
     form.reset();
+    setValue('');
   };
 
   return (
@@ -46,14 +50,14 @@ export default function Form() {
           className={css.input}
         />
       </label>
-      <label className={css.label}>
+      <label className={css.labelNumber}>
         Number
-        <input
-          type="tel"
-          name="number"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          className={css.input}
+        <PhoneInput
+          value={value}
+          onChange={setValue}
+          className={css.inputNumber}
+          defaultCountry="DE"
+          name="tel"
         />
       </label>
       <Button variant="contained" type="submit" endIcon={<PlusCircle />}>

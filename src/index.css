@@ -48,3 +48,8 @@ button {
 /* a.active button {
   background-color: #004aaa;
 } */
+
+.PhoneInput {
+  display: flex;
+  gap: 1rem;
+}
