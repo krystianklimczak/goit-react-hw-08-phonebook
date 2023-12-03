@@ -64,6 +64,7 @@ export default function Form() {
           className={css.inputNumber}
           defaultCountry="DE"
           name="tel"
+          autoComplete="none"
         />
       </label>
       <Button variant="contained" type="submit" endIcon={<PlusCircle />}>
