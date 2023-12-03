@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -12,6 +12,14 @@ import css from './Register.module.css';
 
 export default function Register() {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
+  }, []);
 
   const handleSubmit = event => {
     event.preventDefault();
