@@ -55,6 +55,10 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isRefreshing = false;
         state.isLoading = false;
+        useAddUser({
+          name: action.payload.user.name,
+          email: action.payload.user.email,
+        });
         Notiflix.Notify.success(`Welcome back ${action.payload.user.name} ✌️`);
       })
       .addCase(logout.fulfilled, (state, action) => {
