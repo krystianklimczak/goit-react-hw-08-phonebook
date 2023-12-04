@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import { createSlice } from '@reduxjs/toolkit';
 
 import { checkUser, login, logout, register } from './operations';
+import { useAddUser } from 'hook/useAddUser';
 
 const initialState = {
   isLoggedIn: false,
@@ -42,6 +43,10 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isRefreshing = false;
         state.isLoading = false;
+        useAddUser({
+          name: action.payload.user.name,
+          email: action.payload.user.email,
+        });
         Notiflix.Notify.success(`Nice to meet you ${action.payload.user.name}! 🫵`);
       })
       .addCase(login.fulfilled, (state, action) => {
